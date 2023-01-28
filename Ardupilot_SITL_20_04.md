@@ -141,7 +141,7 @@ Logout and login again to enable the change to user permissions.
 loginctl terminate-user $USER
 ```
 
-Download the latest QGroundControl.AppImage (you can check [here][https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html] for the latest version)
+Download the latest QGroundControl.AppImage (you can check [here]{https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html} for the latest version)
 ```
 cd ~ # Or download the Image in any directory of your choice
 wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
