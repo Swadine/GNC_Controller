@@ -112,17 +112,17 @@ echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
 
 ## Run Simulator
 
-**NOTE the iris_arducopter_runway is not currently working in gazebo11. The iq_sim worlds DO work**
+**NOTE the iris_arducopter_runway is not currently working in gazebo11. **
 
 In one Terminal (Terminal 1), run Gazebo:
 ```
 gazebo --verbose ~/ardupilot_gazebo/worlds/iris_arducopter_runway.world
 ```
 
-In another Terminal (Terminal 2), run SITL:
+In another Terminal (Terminal 2)(use Ctrl+Shift+T to open another terminal), run SITL:
 ```
 cd ~/ardupilot/ArduCopter/
-sim_vehicle.py -v ArduCopter -f gazebo-iris --console
+../Tools/autotest/sim_vehicle.py -f gazebo-iris --console --map
 ```
 
 
