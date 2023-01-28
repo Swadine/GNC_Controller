@@ -45,6 +45,12 @@ cd ~/ardupilot/ArduCopter1
 ../Tools/autotest/sim_vehicle.py --map --console
 ```
 
+***You can also do this to build the repo if you are facing problems***
+```
+./waf configure --board sitl1
+./waf copter
+```
+
 # Installing Gazebo and ArduPilot Plugin
 
 ## Install Gazebo [***18.04-20.04***]
