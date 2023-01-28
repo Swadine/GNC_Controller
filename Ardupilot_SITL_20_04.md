@@ -41,7 +41,7 @@ sim_vehicle.py -w
 
 ***You can also do this to build the repo if you are facing problems***
 ```
-./waf configure --board sitl1
+./waf configure --board sitl
 ./waf copter
 ```
 
