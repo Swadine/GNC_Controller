@@ -216,15 +216,17 @@ Add a line to end of `~/.bashrc` by running the following command:
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 
-update global variables
+Update global variables
 ```
 source ~/.bashrc
 ```
 
-install geographiclib dependancy 
+Install geographiclib dependancy 
 ```
 sudo ~/catkin_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
 ```
+
+If the above command doesn't work then go to https://geographiclib.sourceforge.io/C++/doc/install.html and follow any of the methods for Linux.
 
 Now follow the ROS tutorials at http://wiki.ros.org/ROS/Tutorials/ to learn how to create ROS packages.
 
