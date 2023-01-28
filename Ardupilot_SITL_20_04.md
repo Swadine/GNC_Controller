@@ -39,16 +39,16 @@ cd ~/ardupilot/ArduCopter
 sim_vehicle.py -w
 ```
 
-After the build is successful you can check if the SITL is working using the following commands
-```
-cd ~/ardupilot/ArduCopter1
-../Tools/autotest/sim_vehicle.py --map --console
-```
-
 ***You can also do this to build the repo if you are facing problems***
 ```
 ./waf configure --board sitl1
 ./waf copter
+```
+
+After the build is successful you can check if the SITL is working using the following commands
+```
+cd ~/ardupilot/ArduCopter1
+../Tools/autotest/sim_vehicle.py --map --console
 ```
 
 # Installing Gazebo and ArduPilot Plugin
