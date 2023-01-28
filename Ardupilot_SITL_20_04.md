@@ -125,6 +125,36 @@ cd ~/ardupilot/ArduCopter/
 ../Tools/autotest/sim_vehicle.py -f gazebo-iris --console --map
 ```
 
+# Installing QGroundControl Ubuntu Linux 20.04 LTS
+
+On a new terminal enter
+```
+sudo usermod -a -G dialout $USER
+sudo apt-get remove modemmanager -y
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl -y
+sudo apt install libqt5gui5 -y
+sudo apt install libfuse2 -y
+```
+Logout and login again to enable the change to user permissions.
+
+
+Download QGroundControl.AppImage 
+```
+wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
+```
+Change permissions and run 
+```
+chmod +x ./QGroundControl.AppImage 
+./QGroundControl.AppImage  (or double click)
+```
+
+## Run SITL and connect with Q Ground
+
+```
+cd ~/ardupilot/ArduCopter/
+sim_vehicle.py
+```
+
 
 
 
