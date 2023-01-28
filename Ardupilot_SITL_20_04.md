@@ -125,7 +125,7 @@ cd ~/ardupilot/ArduCopter/
 ../Tools/autotest/sim_vehicle.py -f gazebo-iris --console --map
 ```
 
-# Installing QGroundControl Ubuntu Linux 20.04 LTS
+# Installing QGroundControl on Ubuntu Linux 20.04 LTS
 
 On a new terminal enter
 ```
@@ -136,13 +136,14 @@ sudo apt install libqt5gui5 -y
 sudo apt install libfuse2 -y
 ```
 Logout and login again to enable the change to user permissions.
-You can use this command if you are a command line nerd (remember to save any current progress as this instantly logs you out).
+***You can use this command if you are a command line nerd (remember to save any current progress as this instantly logs you out).***
 ```
 loginctl terminate-user $USER
 ```
 
-Download the latest QGroundControl.AppImage (you can check here[https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html] for the latest version)
+Download the latest QGroundControl.AppImage (you can check [here][https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html] for the latest version)
 ```
+cd ~ # Or download the Image in any directory of your choice
 wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
 ```
 Change permissions and run 
@@ -153,10 +154,81 @@ chmod +x ./QGroundControl.AppImage
 
 ## Run SITL and connect with Q Ground
 
+In another terminal run SITL and QGround will automatically connect.
 ```
 cd ~/ardupilot/ArduCopter/
 sim_vehicle.py
 ```
+
+# Install ROS and Setup Catkin Workspace
+
+We will be installing **ROS Noetic**
+
+## 1. Install ROS
+
+   - Do _Desktop-full Install_
+   - Follow all the steps from the given website
+
+   First, install **ROS Noetic** using the following instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
+
+
+## 2. Set Up Catkin workspace
+
+We use `catkin build` instead of `catkin_make`. Please install the following:
+```
+sudo apt-get install python3-wstool python3-rosinstall-generator python3-catkin-lint python3-pip python3-catkin-tools
+pip3 install osrf-pycommon
+```
+
+Then, initialize the catkin workspace:
+```
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin init
+```
+
+## 3. Dependencies installation
+
+Install `mavros` and `mavlink` from source:
+```
+cd ~/catkin_ws
+wstool init ~/catkin_ws/src
+
+rosinstall_generator --upstream mavros | tee /tmp/mavros.rosinstall
+rosinstall_generator mavlink | tee -a /tmp/mavros.rosinstall
+wstool merge -t src /tmp/mavros.rosinstall
+wstool update -t src
+rosdep install --from-paths src --ignore-src --rosdistro `echo $ROS_DISTRO` -y
+
+catkin build
+```
+If the catkin build fails and the error says
+```
+module 'enum' has no attribute 'IntFlag'
+```
+Simply uninstall enum34 from the environment which is overriding built-in enum in Python. This package was probably installed by something as for forward compatibility which is no longer needed with Python 3.6+
+```
+pip uninstall -y enum34
+```
+
+Add a line to end of `~/.bashrc` by running the following command:
+```
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+```
+
+update global variables
+```
+source ~/.bashrc
+```
+
+install geographiclib dependancy 
+```
+sudo ~/catkin_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+```
+
+Now follow the [ROS tutorials][http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem] to learn how to create ROS packages.
+
+
 
 
 
