@@ -226,7 +226,25 @@ Install geographiclib dependancy
 sudo ~/catkin_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
 ```
 
-If the above command doesn't work then go to https://geographiclib.sourceforge.io/C++/doc/install.html and follow any of the methods for Linux.
+If the above command doesn't work then follow this-
+```
+#Switch to any directory where you want the tar file to get downloaded
+
+wget https://sourceforge.net/projects/geographiclib/files/distrib-C++/GeographicLib-2.1.2.tar.gz
+
+tar xfpz GeographicLib-2.1.2.tar.gz
+cd GeographicLib-2.1.2 
+mkdir BUILD
+cd BUILD 
+
+# Run cmake, pointing it to the source directory (..)
+
+cmake ..
+
+make         # compile the library and utilities
+make test    # run some tests
+make install # as root, if CMAKE_INSTALL_PREFIX is a system directory
+```
 
 Now follow the ROS tutorials at http://wiki.ros.org/ROS/Tutorials/ to learn how to create ROS packages.
 
