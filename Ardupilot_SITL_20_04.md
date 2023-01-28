@@ -136,11 +136,14 @@ sudo apt install libqt5gui5 -y
 sudo apt install libfuse2 -y
 ```
 Logout and login again to enable the change to user permissions.
-
-
-Download QGroundControl.AppImage 
+You can use this command if you are a command line nerd (remember to save any current progress as this instantly logs you out).
 ```
-wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
+loginctl terminate-user $USER
+```
+
+Download the latest QGroundControl.AppImage (you can check here[https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html] for the latest version)
+```
+wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
 ```
 Change permissions and run 
 ```
