@@ -141,7 +141,7 @@ Logout and login again to enable the change to user permissions.
 loginctl terminate-user $USER
 ```
 
-Download the latest QGroundControl.AppImage (you can check [here]{https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html} for the latest version)
+Download the latest QGroundControl.AppImage (you can check https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html for the latest version)
 ```
 cd ~ # Or download the Image in any directory of your choice
 wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
@@ -226,7 +226,7 @@ install geographiclib dependancy
 sudo ~/catkin_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
 ```
 
-Now follow the [ROS tutorials][http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem] to learn how to create ROS packages.
+Now follow the ROS tutorials at http://wiki.ros.org/ROS/Tutorials/ to learn how to create ROS packages.
 
 
 
